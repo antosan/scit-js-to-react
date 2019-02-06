@@ -14,13 +14,10 @@
         <script type="text/javascript">
             const rootElement = document.getElementById("root");
 
-            const element = React.createElement(
-                "h1",
-                { className: "container"},
-                "Hello World from React"
-            );
-
-            console.log(ReactDOM);
+            const element = React.createElement("h1", {
+                className: "container",
+                children: ["Hello World from React ", "Goodbye World"]
+            });
 
             ReactDOM.render(element, rootElement);
         </script>
