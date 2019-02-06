@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>React</title>
-</head>
-<body>
-    <div id="root"></div>
-    <!-- <h1 class="container">Welcome</h1> -->
-    <script type="text/javascript">
-        const rootElement = document.getElementById("root");
-        const element = document.createElement("h1");
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>React</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- <h1 class="container">Welcome</h1> -->
+        <script type="text/javascript">
+            const rootElement = document.getElementById("root");
 
-        element.textContent = "Welcome";
-        element.className = "container";
+            const element = React.createElement(
+                "h1",
+                { className: "container"},
+                "Hello World from React"
+            );
 
-        rootElement.appendChild(element);
-        console.log(rootElement);
-    </script>
-</body>
+            console.log(ReactDOM);
+
+            ReactDOM.render(element, rootElement);
+        </script>
+    </body>
 </html>
