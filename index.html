@@ -7,6 +7,17 @@
     <title>React</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <div id="root"></div>
+    <!-- <h1 class="container">Welcome</h1> -->
+    <script type="text/javascript">
+        const rootElement = document.getElementById("root");
+        const element = document.createElement("h1");
+
+        element.textContent = "Welcome";
+        element.className = "container";
+
+        rootElement.appendChild(element);
+        console.log(rootElement);
+    </script>
 </body>
 </html>
