@@ -11,26 +11,22 @@
     </head>
     <body>
         <div id="root"></div>
-        <!-- <h1 class="container">Welcome</h1> -->
         <script type="text/babel">
             const rootElement = document.getElementById("root");
 
             function GreetingComponent() {
-                return React.createElement("h1", {
-                    className: "container",
-                    children: "Hello World from React"
-                });
+                return <h1 className="container">Hello World from JSX</h1>;
             }
 
-            const wrapperElement = React.createElement(
-                "div",
-                {id: "container"},
-                React.createElement(GreetingComponent)
-            );
+            function App() {
+                return (
+                    <div id="container">
+                        <GreetingComponent />
+                    </div>
+                );
+            }
 
-            console.log(wrapperElement);
-
-            ReactDOM.render(wrapperElement, rootElement);
+            ReactDOM.render(<App />, rootElement);
         </script>
     </body>
 </html>
