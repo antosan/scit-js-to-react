@@ -13,15 +13,24 @@
         <div id="root"></div>
         <script type="text/babel">
             const rootElement = document.getElementById("root");
+            const username = "Antosan";
 
-            function GreetingComponent() {
-                return <h1 className="container">Hello World from JSX</h1>;
+            function GreetingComponent(props) {
+                if (!props.text) {
+                    return <h1 className="container">Hello stranger!</h1>;
+                }
+
+                return <h1 className="container">{username + props.text}</h1>;
             }
 
             function App() {
                 return (
                     <div id="container">
                         <GreetingComponent />
+                        <GreetingComponent text="Bye" />
+                        <GreetingComponent text="Hello" />
+                        <GreetingComponent text="React is awesome" />
+                        <GreetingComponent text="I dont undestand anything" />
                     </div>
                 );
             }
