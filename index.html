@@ -15,12 +15,17 @@
             const rootElement = document.getElementById("root");
             const username = "Antosan";
 
-            function GreetingComponent(props) {
-                if (!props.text) {
-                    return <h1 className="container">Hello stranger!</h1>;
+            class GreetingComponent extends React.Component {
+                componentDidMount() {
+                    console.log("Mounted");
                 }
+                render() {
+                    if (!this.props.text) {
+                        return <h1 className="container">Hello stranger!</h1>;
+                    }
 
-                return <h1 className="container">{username + props.text}</h1>;
+                    return <h1 className="container">{username + this.props.text}</h1>;
+                }
             }
 
             function App() {
