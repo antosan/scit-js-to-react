@@ -19,11 +19,14 @@
                     super(props);
                     this.state = {
                         number: 0,
+                        luckyNumbers: [],
                     };
+
+                    this.getLuckyNumber = this.getLuckyNumber.bind(this);
                 }
 
                 componentDidMount() {
-                    this.intervalId = setInterval(() => this.tick(), 1000);
+                    this.intervalId = setInterval(() => this.tick(), 1);
                 }
 
                 tick() {
@@ -34,12 +37,32 @@
                     });
                 }
 
+                getLuckyNumber() {
+                    this.setState(function(prevState) {
+                        return {
+                            luckyNumbers: prevState.luckyNumbers.concat(prevState.number)
+                        }
+                    });
+                }
+
                 componentWillUnmount() {
                     clearInterval(this.intervalId);
                 }
 
                 render() {
-                    return <h2>{this.state.number}</h2>;
+                    return (
+                        <div>
+                            <h2>{this.state.number}</h2>
+                            <button onClick={this.getLuckyNumber}>Get Lucky Number</button>
+                            <ul>
+                                {
+                                    this.state.luckyNumbers.map(function (currentNumber, index) {
+                                        return <li key={index.toString()}>{currentNumber}</li>
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    );
                 }
             }
 
