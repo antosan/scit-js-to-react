@@ -23,6 +23,7 @@
                     };
 
                     this.getLuckyNumber = this.getLuckyNumber.bind(this);
+                    this.deleteLuckyNumber = this.deleteLuckyNumber.bind(this);
                 }
 
                 componentDidMount() {
@@ -45,6 +46,16 @@
                     });
                 }
 
+                deleteLuckyNumber(currentNumber) {
+                    return (event) => {
+                        this.setState(function(prevState) {
+                            return {
+                                luckyNumbers: prevState.luckyNumbers.filter(luckyNumber => luckyNumber !== currentNumber)
+                            }
+                        });
+                    }
+                }
+
                 componentWillUnmount() {
                     clearInterval(this.intervalId);
                 }
@@ -56,8 +67,13 @@
                             <button onClick={this.getLuckyNumber}>Get Lucky Number</button>
                             <ul>
                                 {
-                                    this.state.luckyNumbers.map(function (currentNumber, index) {
-                                        return <li key={index.toString()}>{currentNumber}</li>
+                                    this.state.luckyNumbers.map((currentNumber, index) => {
+                                        return (
+                                            <li key={index.toString()}>
+                                                {currentNumber}
+                                                <button onClick={this.deleteLuckyNumber(currentNumber)}>X</button>
+                                            </li>
+                                        )
                                     })
                                 }
                             </ul>
